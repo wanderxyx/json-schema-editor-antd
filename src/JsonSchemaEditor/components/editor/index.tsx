@@ -41,7 +41,7 @@ interface EditorContextProp {
 }
 
 export const EditorContext = createContext<EditorContextProp>({
-  changeCustomValue: () => {},
+  changeCustomValue: () => { },
   mock: false,
 });
 
@@ -289,24 +289,22 @@ const Editor = observer((props: EditorProp): ReactElement => {
     >
       <div className="json-schema-react-editor">
         <Button type="primary" onClick={showModal}>
-          import_json
+          导入JSON
         </Button>
         <Modal
           width={750}
           maskClosable={false}
           open={visible}
-          title="import_json"
+          title="导入JSON"
           onOk={handleOk}
           onCancel={handleCancel}
           className="json-schema-react-editor-import-modal"
-          okText="ok"
-          cancelText="cancel"
           footer={[
             <Button key="back" onClick={handleCancel}>
-              cancel
+              取消
             </Button>,
             <Button key="submit" type="primary" onClick={handleOk}>
-              ok
+              确认
             </Button>,
           ]}
         >
@@ -356,8 +354,8 @@ const Editor = observer((props: EditorProp): ReactElement => {
           open={editVisible}
           onOk={() => handleEditOk(editorModalName)}
           onCancel={handleEditCancel}
-          okText="ok"
-          cancelText="cancel"
+          okText="确认"
+          cancelText="取消"
         >
           <Input.TextArea
             value={stateVal[editorModalName]}
@@ -371,14 +369,14 @@ const Editor = observer((props: EditorProp): ReactElement => {
 
         {advVisible && (
           <Modal
-            title="adv_setting"
+            title="高级设置"
             width={750}
             maskClosable={false}
             open={advVisible}
             onOk={handleAdvOk}
             onCancel={handleAdvCancel}
-            okText="ok"
-            cancelText="cancel"
+            okText="确认"
+            cancelText="取消"
             className="json-schema-react-editor-adv-modal"
           >
             <SchemaOther
@@ -447,7 +445,7 @@ const Editor = observer((props: EditorProp): ReactElement => {
                       </Col>
                     </Row>
                   </Col>
-                  <Col span={props.mock ? 3 : 4}>
+                  <Col span={props.mock ? 4 : 6}>
                     <Select
                       style={{ width: '100%' }}
                       onChange={(value) => handleChangeType(`type`, value)}
@@ -463,7 +461,7 @@ const Editor = observer((props: EditorProp): ReactElement => {
                     </Select>
                   </Col>
                   {props.mock && (
-                    <Col span={3}>
+                    <Col span={4}>
                       <MockSelect
                         schema={schemaMobx.schema}
                         showEdit={handleMockSelectShowEdit}
@@ -471,24 +469,7 @@ const Editor = observer((props: EditorProp): ReactElement => {
                       />
                     </Col>
                   )}
-                  <Col span={props.mock ? 5 : 6}>
-                    <Input
-                      placeholder="title"
-                      value={schemaMobx.schema.title}
-                      onChange={(ele) =>
-                        handleChangeValue(['title'], ele.target.value)
-                      }
-                      addonAfter={
-                        <EditOutlined
-                          className="input-icon-editor"
-                          onClick={() =>
-                            showEdit([], 'title', schemaMobx.schema.title)
-                          }
-                        />
-                      }
-                    />
-                  </Col>
-                  <Col span={props.mock ? 5 : 6}>
+                  <Col span={props.mock ? 8 : 10}>
                     <Input
                       addonAfter={
                         <EditOutlined

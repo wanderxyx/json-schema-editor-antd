@@ -92,7 +92,7 @@ const JsonSchemaObserverEditor = observer((props: JsonSchemaEditorProps) => {
 const JsonSchemaEditor = (props: JsonSchemaEditorProps): ReactElement => {
   return (
     <>
-      <JsonSchemaObserverEditor {...props} />
+      <JsonSchemaObserverEditor {...props} mock />
     </>
   );
 };

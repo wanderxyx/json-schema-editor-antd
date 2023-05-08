@@ -5,6 +5,7 @@
 ![](https://img.shields.io/badge/license-MIT-000000.svg)
 
 [Antd Design](https://ant.design/) 风格的 Json Schema 可视化编辑器。
+基于 https://github.com/lin-mt/json-schema-editor-antd ，进行了中文化。
 
 [Arco Design](https://arco.design/) 风格：https://github.com/lin-mt/json-schema-editor-arco
 

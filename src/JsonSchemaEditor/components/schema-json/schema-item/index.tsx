@@ -89,11 +89,6 @@ const SchemaItem = observer((props: SchemaItemProp): ReactElement | null => {
     mobxContext.changeValue({ keys: key, value });
   };
 
-  const handleChangeTitle = (value: any) => {
-    const key = getPrefix().concat('title');
-    mobxContext.changeValue({ keys: key, value });
-  };
-
   // 修改数据类型
   const handleChangeType = (value: any) => {
     const keys = getPrefix().concat('type');
@@ -194,7 +189,7 @@ const SchemaItem = observer((props: SchemaItemProp): ReactElement | null => {
               </Row>
             </Col>
 
-            <Col span={context.mock ? 3 : 4}>
+            <Col span={context.mock ? 4 : 6}>
               <Select
                 style={{ width: '100%' }}
                 onChange={handleChangeType}
@@ -211,7 +206,7 @@ const SchemaItem = observer((props: SchemaItemProp): ReactElement | null => {
             </Col>
 
             {context.mock && (
-              <Col span={3}>
+              <Col span={4}>
                 <MockSelect
                   schema={value}
                   showEdit={() => handleShowEdit('mock', value.type)}
@@ -219,22 +214,7 @@ const SchemaItem = observer((props: SchemaItemProp): ReactElement | null => {
                 />
               </Col>
             )}
-
-            <Col span={context.mock ? 5 : 6}>
-              <Input
-                addonAfter={
-                  <EditOutlined
-                    className="input-icon-editor"
-                    onClick={() => handleShowEdit('title')}
-                  />
-                }
-                placeholder="title"
-                value={value.title}
-                onChange={(event) => handleChangeTitle(event.target.value)}
-              />
-            </Col>
-
-            <Col span={context.mock ? 5 : 6}>
+            <Col span={context.mock ? 8 : 10}>
               <Input
                 addonAfter={
                   <EditOutlined
@@ -249,7 +229,6 @@ const SchemaItem = observer((props: SchemaItemProp): ReactElement | null => {
             </Col>
           </Row>
         </Col>
-
         <Col flex="66px">
           <Row gutter={8}>
             <Col span={8}>

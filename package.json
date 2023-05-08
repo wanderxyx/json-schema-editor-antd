@@ -1,6 +1,6 @@
 {
-  "name": "@quiet-front-end/json-schema-editor-antd",
-  "version": "0.3.0",
+  "name": "json-schema-editor-antd-zh-cn",
+  "version": "0.1.0",
   "private": false,
   "description": "Json Schema 可视化编辑器",
   "keywords": [

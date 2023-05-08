@@ -75,11 +75,6 @@ const SchemaArray = observer((props: SchemaArrayProp): ReactElement => {
     mobxContext.changeValue({ keys: key, value });
   };
 
-  const handleChangeTitle = (value: any) => {
-    const key = getPrefix().concat('title');
-    mobxContext.changeValue({ keys: key, value });
-  };
-
   // 增加子节点
   const handleAddChildField = () => {
     const keyArr = getPrefix().concat('properties');
@@ -141,7 +136,7 @@ const SchemaArray = observer((props: SchemaArrayProp): ReactElement => {
                 </Col>
               </Row>
             </Col>
-            <Col span={context.mock ? 3 : 4}>
+            <Col span={context.mock ? 4 : 6}>
               <Select
                 style={{ width: '100%' }}
                 onChange={handleChangeType}
@@ -157,7 +152,7 @@ const SchemaArray = observer((props: SchemaArrayProp): ReactElement => {
               </Select>
             </Col>
             {context.mock && (
-              <Col span={3}>
+              <Col span={4}>
                 <MockSelect
                   schema={items}
                   showEdit={() => handleShowEdit('mock', items?.type)}
@@ -165,20 +160,7 @@ const SchemaArray = observer((props: SchemaArrayProp): ReactElement => {
                 />
               </Col>
             )}
-            <Col span={context.mock ? 5 : 6}>
-              <Input
-                addonAfter={
-                  <EditOutlined
-                    className="input-icon-editor"
-                    onClick={() => handleShowEdit('title')}
-                  />
-                }
-                placeholder="title"
-                value={items?.title}
-                onChange={(event) => handleChangeTitle(event.target.value)}
-              />
-            </Col>
-            <Col span={context.mock ? 5 : 6}>
+            <Col span={context.mock ? 8 : 10}>
               <Input
                 addonAfter={
                   <EditOutlined
